@@ -8,9 +8,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtensionReloader = require('webpack-ext-reloader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const WextManifestWebpackPlugin = require('wext-manifest-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 const viewsPath = path.join(__dirname, 'views');
@@ -241,6 +241,7 @@ module.exports = {
                 },
               },
             }),
+            new CssMinimizerPlugin(),
           ],
         }
       : {},
